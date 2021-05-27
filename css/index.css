@@ -5455,7 +5455,7 @@ div.btns a {
   -webkit-transition: all 0.28s ease;
   -o-transition: all 0.28s ease;
   margin: 8px;
-  margin-top: calc(1.25 * 16px + 32px);
+  margin-top: calc(1.25 * 4px);
   min-width: 120px;
   font-weight: bold;
   display: -webkit-box;
