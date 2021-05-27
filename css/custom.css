@@ -1,5 +1,5 @@
 @font-face{
   font-family:'手札体-简' ;  /* 字体名自定义即可 */
-  src:url('/fonts/手札体.ttf'); /* 字体文件路径 */
+  src:url('../fonts/手札体.ttf'); /* 字体文件路径 */
   font-display : swap;
 }
