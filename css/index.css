@@ -1329,7 +1329,7 @@ canvas:not(#ribbon-canvas),
   }
 }
 :root {
-  --global-font-size: 15px;
+  --global-font-size: 16px;
   --global-bg: #fff;
   --font-color: #4c4948;
   --hr-border: #d2ebfd;
@@ -1368,7 +1368,7 @@ body {
   background: var(--global-bg);
   color: var(--font-color);
   font-size: var(--global-font-size);
-  font-family: 手札体-简;
+  font-family: WenQuanYi Micro Hei,Microsoft Yahei,手札体-简;
   line-height: 2;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
@@ -1698,7 +1698,7 @@ blockquote footer cite:before {
 }
 #article-container pre,
 #article-container code {
-  font-size: 15px;
+  font-size: 16px;
   font-family: JetBrains Mono !important;
 }
 #article-container code {
@@ -1729,7 +1729,7 @@ blockquote footer cite:before {
 #article-container figure.highlight figcaption,
 #article-container figure.highlight .caption {
   padding: 0.3rem 0 0.1rem 0.7rem;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1em;
 }
 #article-container figure.highlight figcaption a,
@@ -1761,7 +1761,7 @@ blockquote footer cite:before {
   height: 2.15em;
   background: #e6ebf1;
   color: #90a4ae;
-  font-size: 15px;
+  font-size: 16px;
 }
 #article-container .highlight-tools.closed + table {
   display: none;
@@ -6040,7 +6040,7 @@ details {
   margin: 1em 0;
   border-radius: 4px;
   background: #fff;
-  font-size: 15px;
+  font-size: 16px;
   -webkit-transition: all 0.28s ease;
   -moz-transition: all 0.28s ease;
   -o-transition: all 0.28s ease;
@@ -7134,7 +7134,7 @@ div.videos[col='4'] iframe {
   display: -ms-flexbox;
   display: box;
   display: flex;
-  font-size: 15px;
+  font-size: 16px;
   background-color: rgba(88,88,88,0.6);
   border-radius: 0.25rem;
   margin: 1rem 0;
@@ -7383,7 +7383,7 @@ p.p.subtitle:first-child {
 }
 span.p.logo,
 p.p.logo {
-  font-family: 手札体-简;
+  font-family: WenQuanYi Micro Hei,Microsoft Yahei,手札体-简;
 }
 span.p.code,
 p.p.code {
@@ -7406,7 +7406,7 @@ p.p.right {
 }
 span.p.small,
 p.p.small {
-  font-size: 15px;
+  font-size: 16px;
 }
 span.p.large,
 p.p.large {
