@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Office E5 Renew Auto API | 小郭家的一柯聪</title><meta name="keywords" content="📦️INBOX"><meta name="author" content="小郭家的一柯聪"><meta name="copyright" content="小郭家的一柯聪"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="Office E5自动续订，调用API。">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Office E5 Renew Auto API | 小郭家的一柯聪</title><meta name="keywords" content="📦️INBOX"><meta name="author" content="小郭家的一柯聪"><meta name="copyright" content="小郭家的一柯聪"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Office E5自动续订，调用API。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Office E5 Renew Auto API">
 <meta property="og:url" content="http://nikeguo.github.io/2021/11/03/Office%20E5%20Renew%20Auto%20API/index.html">
@@ -11,20 +11,24 @@
 <meta property="article:author" content="小郭家的一柯聪">
 <meta property="article:tag" content="📦️INBOX">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://brief-spurious-pizza.glitch.me/PicBed/Picture%20bed/blog/cover/Office%20E5.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://nikeguo.github.io/2021/11/03/Office%20E5%20Renew%20Auto%20API/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="preconnect" href="//zz.bdstatic.com"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+<meta name="twitter:image" content="https://brief-spurious-pizza.glitch.me/PicBed/Picture%20bed/blog/cover/Office%20E5.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://nikeguo.github.io/2021/11/03/Office%20E5%20Renew%20Auto%20API/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//www.clarity.ms"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "https://hm.baidu.com/hm.js?daa4c5cb9ae94b6cfc72413201e9956f";
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
-</script><link rel="stylesheet" href="/fonts/Candy.ttf" media="print" onload="this.media='all'"><script>var GLOBAL_CONFIG = { 
+</script><script>(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "9ub00easd2");</script><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: undefined,
-  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
-  noticeOutdate: {"limitDay":5,"position":"top","messagePrev":"本文发布距今","messageNext":"天，文章可能已过时效"},
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  translate: undefined,
+  noticeOutdate: {"limitDay":7,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
   copy: {
     success: '复制成功',
     error: '复制错误',
@@ -44,7 +48,7 @@
   },
   copyright: undefined,
   lightbox: 'fancybox',
-  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#066478","bgDark":"#121212","position":"top-center"},
+  Snackbar: undefined,
   source: {
     jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
     justifiedGallery: {
@@ -59,50 +63,8 @@
   isPhotoFigcaption: true,
   islazyload: false,
   isanchor: true
-};
-
-var saveToLocal = {
-  set: function setWithExpiry(key, value, ttl) {
-    const now = new Date()
-    const expiryDay = ttl * 86400000
-    const item = {
-      value: value,
-      expiry: now.getTime() + expiryDay,
-    }
-    localStorage.setItem(key, JSON.stringify(item))
-  },
-
-  get: function getWithExpiry(key) {
-    const itemStr = localStorage.getItem(key)
-
-    if (!itemStr) {
-      return undefined
-    }
-    const item = JSON.parse(itemStr)
-    const now = new Date()
-
-    if (now.getTime() > item.expiry) {
-      localStorage.removeItem(key)
-      return undefined
-    }
-    return item.value
-  }
-}
-
-// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
-const getScript = url => new Promise((resolve, reject) => {
-  const script = document.createElement('script')
-  script.src = url
-  script.async = true
-  script.onerror = reject
-  script.onload = script.onreadystatechange = function() {
-    const loadState = this.readyState
-    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-    script.onload = script.onreadystatechange = null
-    resolve()
-  }
-  document.head.appendChild(script)
-})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Office E5 Renew Auto API',
   isPost: true,
   isHome: false,
   isHighlightShrink: false,
@@ -120,67 +82,112 @@ const getScript = url => new Promise((resolve, reject) => {
   #post-meta time {
     display: inline !important
   }
-</style></noscript><script>(function () {  window.activateDarkMode = function () {
-    document.documentElement.setAttribute('data-theme', 'dark')
-    if (document.querySelector('meta[name="theme-color"]') !== null) {
-      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-    }
-  }
-  window.activateLightMode = function () {
-    document.documentElement.setAttribute('data-theme', 'light')
-   if (document.querySelector('meta[name="theme-color"]') !== null) {
-      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-    }
-  }
-  const autoChangeMode = '1'
-  const t = saveToLocal.get('theme')
-  if (autoChangeMode === '1') {
-    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-    if (t === undefined) {
-      if (isLightMode) activateLightMode()
-      else if (isDarkMode) activateDarkMode()
-      else if (isNotSpecified || hasNoSupport) {
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
         const now = new Date()
-        const hour = now.getHours()
-        const isNight = hour <= 6 || hour >= 18
-        isNight ? activateDarkMode() : activateLightMode()
-      }
-      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-        if (saveToLocal.get('theme') === undefined) {
-          e.matches ? activateDarkMode() : activateLightMode()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
         }
-      })
-    } else if (t === 'light') activateLightMode()
-    else activateDarkMode()
-  } else if (autoChangeMode === '2') {
-    const now = new Date()
-    const hour = now.getHours()
-    const isNight = hour <= 6 || hour >= 18
-    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
-    else if (t === 'light') activateLightMode()
-    else activateDarkMode()
-  } else {
-    if (t === 'dark') activateDarkMode()
-    else if (t === 'light') activateLightMode()
-  }const asideStatus = saveToLocal.get('aside-status')
-if (asideStatus !== undefined) {
-   if (asideStatus === 'hide') {
-     document.documentElement.classList.add('hide-aside')
-   } else {
-     document.documentElement.classList.remove('hide-aside')
-   }
-}const fontSizeVal = saveToLocal.get('global-font-size')
-if (fontSizeVal !== undefined) {
-  document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
-}})()</script><link rel="stylesheet" href="//at.alicdn.com/t/font_1932240_x3posfdppr.css"><link rel="stylesheet" href="//source/css/custom.css"><link rel="stylesheet" href="APlayer.min.css"><div id="aplayer"></div><script src="https://cdn.jsdelivr.net/gh/radium-bit/res@master/live2d/autoload.js" async></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js" async></script><meta name="generator" content="Hexo 5.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/avatar1.png" onerror="onerror=null;src='/img/friend_404.jpg'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-compass"></i><span> 导航</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/link/"><i class="fa-fw fas fa-bookmark"></i><span> 网站导航</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/love/"><i class="fa-fw fas fa-heart"></i><span> My Love</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user-circle"></i><span> 关于我</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://brief-spurious-pizza.glitch.me/PicBed/Picture%20bed/blog/cover/Office%20E5.png)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">小郭家的一柯聪</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-compass"></i><span> 导航</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/link/"><i class="fa-fw fas fa-bookmark"></i><span> 网站导航</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/love/"><i class="fa-fw fas fa-heart"></i><span> My Love</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user-circle"></i><span> 关于我</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Office E5 Renew Auto API</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-11-03T10:18:19.265Z" title="发表于 2021-11-03 18:18:19">2021-11-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-11-09T06:07:01.580Z" title="更新于 2021-11-09 14:07:01">2021-11-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%F0%9F%93%A6%EF%B8%8FINBOX/">📦️INBOX</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">763</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="📜所需工具"><a href="#📜所需工具" class="headerlink" title="📜所需工具"></a>📜所需工具</h1><ul>
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><link rel="stylesheet" href="//at.alicdn.com/t/font_1932240_x3posfdppr.css"><link rel="stylesheet" href="/css/custom.css"  media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.min.css" media="defer" onload="this.media='all'"><script async src="https://cdn.jsdelivr.net/npm/hexo-butterfly-tag-plugins-plus@latest/lib/carousel-touch.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-filter-gitcalendar/lib/gitcalendar.css"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar1.png" onerror="onerror=null;src='null'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-user-friends"></i><span> 友人帐</span></a></div><div class="menus_item"><a class="site-page" href="/love/"><i class="fa-fw fas fa-heart"></i><span> My Love</span></a></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw far fa-image"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user-circle"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://brief-spurious-pizza.glitch.me/PicBed/Picture%20bed/blog/cover/Office%20E5.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">小郭家的一柯聪</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-user-friends"></i><span> 友人帐</span></a></div><div class="menus_item"><a class="site-page" href="/love/"><i class="fa-fw fas fa-heart"></i><span> My Love</span></a></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw far fa-image"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user-circle"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Office E5 Renew Auto API</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-11-03T10:18:19.265Z" title="发表于 2021-11-03 18:18:19">2021-11-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-11-09T06:07:01.580Z" title="更新于 2021-11-09 14:07:01">2021-11-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%F0%9F%93%A6%EF%B8%8FINBOX/">📦️INBOX</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">763</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Office E5 Renew Auto API"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="📜所需工具"><a href="#📜所需工具" class="headerlink" title="📜所需工具"></a>📜所需工具</h1><ul>
 <li>rclone.exe</li>
 <li>函数代码AutoAPI-main.zip</li>
 </ul>
 <p>　　所有文件下载链接🔗均在文末</p>
-<h1 id="🏷️获取-refresh-token"><a href="#🏷️获取-refresh-token" class="headerlink" title="🏷️获取 refresh_token"></a>🏷️获取 refresh_token</h1><p>　　登陆<a target="_blank" rel="noopener" href="https://portal.azure.com/">Microsoft Azure</a>，从侧边栏进入 <kbd>Azure Active Directory</kbd> ，找到<kbd>应用注册</kbd>，单击<kbd>新注册</kbd>，设置为如下，重定向选择WEB服务，URI填写<code>http://localhost:53682/</code><br>　　<img src="https://brief-spurious-pizza.glitch.me/PicBed/Picture%20bed/blog/2021/11/OfficeE5RenewAutoAPI-2.png" title="应用注册"></p>
+<h1 id="🏷️获取-refresh-token"><a href="#🏷️获取-refresh-token" class="headerlink" title="🏷️获取 refresh_token"></a>🏷️获取 refresh_token</h1><p>　　登陆<a target="_blank" rel="noopener" href="https://portal.azure.com">Microsoft Azure</a>，从侧边栏进入 <kbd>Azure Active Directory</kbd> ，找到<kbd>应用注册</kbd>，单击<kbd>新注册</kbd>，设置为如下，重定向选择WEB服务，URI填写<code>http://localhost:53682/</code><br>　　<img src="https://brief-spurious-pizza.glitch.me/PicBed/Picture%20bed/blog/2021/11/OfficeE5RenewAutoAPI-2.png" alt="" title="应用注册"></p>
 <p>　　设置完成后点击左侧<kbd>API权限</kbd>→<kbd>添加权限</kbd>→<kbd>Microsoft Graph</kbd>→<kbd>委托的权限</kbd>，以下权限打上对勾</p>
 <p>　　<code>Files.Read.All</code>、<code>Files.ReadWrite.All</code>、<code>Sites.Read.All</code>、<code>Sites.ReadWrite.All</code>、<code>User.Read.All</code>、<code>User.ReadWrite.All</code>、<code>Directory.Read.All</code>、<code>Directory.ReadWrite.All</code>、<code>Mail.Read</code>、<code>Mail.ReadWrite</code>、<code>MailboxSettings.Read</code>、<code>MailboxSettings.ReadWrite</code></p>
 <p>　　全部勾选后，记得点击一下<kbd>代表XXXX授予管理员同意</kbd>，否则API是没有权限调用的</p>
@@ -188,14 +195,15 @@ if (fontSizeVal !== undefined) {
 <p>　　单击左侧概述，找到<kbd>应用程序(客户端) ID</kbd>，复制保存。这时就有了<code>clien_id</code>（应用程序(客户端) ID）和<code>secret</code>（上面的<code>值</code>）</p>
 <p>　　打开文件<kbd>rclone.exe</kbd>所在目录（不要打开程序），在地址栏输入<code>cmd</code>，打开Command命令行，在命令行执行下列代码（下面那一行是示例）</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rclone authorize <span class="string">&quot;onedrive&quot;</span> <span class="string">&quot;[你自己的clien_id]&quot;</span> <span class="string">&quot;[你自己的secret]&quot;</span></span><br><span class="line"></span><br><span class="line">rclone authorize <span class="string">&quot;onedrive&quot;</span> <span class="string">&quot;b827d6ee2-16wf-56dc-9550-4eab0d5a208f&quot;</span> <span class="string">&quot;4jb7Q~aVIvgctydGYE-CdPmcN7tVd-OU~efSI&quot;</span></span><br></pre></td></tr></table></figure>
-<p>　　执行后会打开浏览器，在浏览器登陆自己的MS E5账号并授权刚刚在<a target="_blank" rel="noopener" href="https://portal.azure.com/">Microsoft Azure</a>注册的应用，操作正常浏览器页面会弹出<code>Success!</code>字样。</p>
+<p>　　执行后会打开浏览器，在浏览器登陆自己的MS E5账号并授权刚刚在<a target="_blank" rel="noopener" href="https://portal.azure.com">Microsoft Azure</a>注册的应用，操作正常浏览器页面会弹出<code>Success!</code>字样。</p>
 <p>　　再返回Command命令行会看到一大串的字符串，复制出来，然后找到<code>&quot;refresh_token&quot;</code>开头的，复制其冒号后面引号里的字符串值（注意，引号不需要，只需要引号里的值就行了）。这串字符串就是<code>refresh_token</code></p>
 <h1 id="☁️腾讯云函数SCF"><a href="#☁️腾讯云函数SCF" class="headerlink" title="☁️腾讯云函数SCF"></a>☁️腾讯云函数SCF</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>　　进入腾讯<a target="_blank" rel="noopener" href="https://console.cloud.tencent.com/scf/index?rid=5">云函数控制台</a></p>
 <p>　　新建：<kbd>函数服务</kbd>→<kbd>新建</kbd>→<kbd>自定义创建</kbd>，设置如图所示</p>
-<p>　　<img src="https://brief-spurious-pizza.glitch.me/PicBed/Picture%20bed/blog/2021/11/OfficeE5RenewAutoAPI-1.png" title="函数创建">　　</p>
+<p>　　<img src="https://brief-spurious-pizza.glitch.me/PicBed/Picture%20bed/blog/2021/11/OfficeE5RenewAutoAPI-1.png" alt="" title="函数创建">　　</p>
 <p>　　函数代码：本地上传zip包。</p>
 <p>　　执行方法改为<code>index.main</code></p>
 <h2 id="函数配置"><a href="#函数配置" class="headerlink" title="函数配置"></a>函数配置</h2><p>　　代码上传完成后，<kbd>函数服务</kbd>，找到刚刚创建的函数，<kbd>函数管理</kbd>→<kbd>函数配置</kbd>→<kbd>编辑</kbd>→<kbd>环境配置</kbd>，将执行超过时间改为<code>900</code>秒，然后填写<kbd>环境变量</kbd>，各项值如下（value均不需要引号）。填写好后点击保存</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -203,7 +211,8 @@ if (fontSizeVal !== undefined) {
 <th>描述(value)</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>clien_id</td>
 <td>应用程序(客户端) ID</td>
 </tr>
@@ -235,14 +244,34 @@ if (fontSizeVal !== undefined) {
 <td>SecretKey</td>
 <td>同 SecretId</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>　　然后点击左侧<kbd>触发管理</kbd>→<kbd>创建触发器</kbd>，触发方式选择<code>定时触发</code>，触发周期选择<code>自定义</code>，表达式里填写<code>0 0 9,15,21 * * * *</code>，即每天的9、15、21点触发运行。<a target="_blank" rel="noopener" href="https://cloud.tencent.com/document/product/583/9708#cron-.E8.A1.A8.E8.BE.BE.E5.BC.8F">腾讯云cron相关文档</a>
 　　</p>
 <h1 id="🔗文件链接"><a href="#🔗文件链接" class="headerlink" title="🔗文件链接"></a>🔗文件链接</h1><div class="btns rounded grid5">
             <a class="button" target="_blank" rel="noopener" href='https://brief-spurious-pizza.glitch.me/PicBed/Picture%20bed/blog/files/rclone.exe' title='rclone.exe [41.3MB]'><i class='fas fa-download'></i>rclone.exe [41.3MB]</a>
 <a class="button" target="_blank" rel="noopener" href='https://brief-spurious-pizza.glitch.me/PicBed/Picture%20bed/blog/files/AutoAPI-main.zip' title='代码.zip [4.06KB]'><i class='fas fa-download'></i>代码.zip [4.06KB]</a>
           </div>
-</article><div class="post-copyright"><div class="post-copyright__title"><span class="post-copyright-info"><h>Office E5 Renew Auto API</h></span></div><div class="post-copyright__type"><span class="post-copyright-info"><a href="http://nikeguo.github.io/2021/11/03/Office%20E5%20Renew%20Auto%20API/">http://nikeguo.github.io/2021/11/03/Office E5 Renew Auto API/</a></span></div><div class="post-copyright-m"><div class="post-copyright-m-info"><div class="post-copyright-a"><h>作者</h><div class="post-copyright-cc-info"><h>小郭家的一柯聪</h></div></div><div class="post-copyright-c"><h>发布于</h><div class="post-copyright-cc-info"><h>2021-11-03</h></div></div><div class="post-copyright-u"><h>更新于</h><div class="post-copyright-cc-info"><h>2021-11-09</h></div></div><div class="post-copyright-c"><h>许可协议</h><div class="post-copyright-cc-info"><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></div></div></div></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%F0%9F%93%A6%EF%B8%8FINBOX/">📦️INBOX</a></div><div class="post_share"><div class="social-share" data-image="https://brief-spurious-pizza.glitch.me/PicBed/Picture%20bed/blog/cover/Office%20E5.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://nickguo.oss-cn-beijing.aliyuncs.com/picture/blog/Collection%20code%20-%20weixin.png" target="_blank"><img class="post-qr-code-img" src="https://nickguo.oss-cn-beijing.aliyuncs.com/picture/blog/Collection%20code%20-%20weixin.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="https://nickguo.oss-cn-beijing.aliyuncs.com/picture/blog/Collection%20code%20-%20zhifubao.jpg" target="_blank"><img class="post-qr-code-img" src="https://nickguo.oss-cn-beijing.aliyuncs.com/picture/blog/Collection%20code%20-%20zhifubao.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/08/13/VMware%20%E5%AE%89%E8%A3%85%20MacOS/"><img class="next-cover" src="https://brief-spurious-pizza.glitch.me/PicBed/Picture%20bed/blog/2021/08/VM-MacOS_Mac%20OS%20DESKTOP.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">VMware 安装 MacOS 教程</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/avatar1.png" onerror="this.onerror=null;this.src='/img/friend_404.jpg'" alt="avatar"/><div class="author-info__name">小郭家的一柯聪</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://nikeguo-github-io.vercel.app/"><i class="fas fa-sync-alt"></i><span>我的替身</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/nikeguo" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1667623488@qq.com" target="_blank" title="E-mail"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/1667623488" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="https://space.bilibili.com/417091173" target="_blank" title="Bilibili"><i class="iconfont icon-bilibili"></i></a><a class="social-icon" href="https://brief-spurious-pizza.glitch.me" target="_blank" title="云盘"><i class="fas fa-cloud-download-alt"></i></a><a class="social-icon" href="https://weibo.com/u/6041741326" target="_blank" title="微博"><i class="fab fa-weibo"></i></a><a class="social-icon" href="https://s6527413.v1712.cn/" target="_blank" title="Wordpress"><i class="fab fa-wordpress"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">感谢访问本站，若喜欢请收藏 ^_^</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%F0%9F%93%9C%E6%89%80%E9%9C%80%E5%B7%A5%E5%85%B7"><span class="toc-number">1.</span> <span class="toc-text">📜所需工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%F0%9F%8F%B7%EF%B8%8F%E8%8E%B7%E5%8F%96-refresh-token"><span class="toc-number">2.</span> <span class="toc-text">🏷️获取 refresh_token</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E2%98%81%EF%B8%8F%E8%85%BE%E8%AE%AF%E4%BA%91%E5%87%BD%E6%95%B0SCF"><span class="toc-number">3.</span> <span class="toc-text">☁️腾讯云函数SCF</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">3.1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E9%85%8D%E7%BD%AE"><span class="toc-number">3.2.</span> <span class="toc-text">函数配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%F0%9F%94%97%E6%96%87%E4%BB%B6%E9%93%BE%E6%8E%A5"><span class="toc-number">4.</span> <span class="toc-text">🔗文件链接</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/11/03/Office%20E5%20Renew%20Auto%20API/" title="Office E5 Renew Auto API"><img src="https://brief-spurious-pizza.glitch.me/PicBed/Picture%20bed/blog/cover/Office%20E5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Office E5 Renew Auto API"/></a><div class="content"><a class="title" href="/2021/11/03/Office%20E5%20Renew%20Auto%20API/" title="Office E5 Renew Auto API">Office E5 Renew Auto API</a><time datetime="2021-11-03T10:18:19.265Z" title="发表于 2021-11-03 18:18:19">2021-11-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/08/13/VMware%20%E5%AE%89%E8%A3%85%20MacOS/" title="VMware 安装 MacOS 教程"><img src="https://brief-spurious-pizza.glitch.me/PicBed/Picture%20bed/blog/2021/08/VM-MacOS_Mac%20OS%20DESKTOP.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="VMware 安装 MacOS 教程"/></a><div class="content"><a class="title" href="/2021/08/13/VMware%20%E5%AE%89%E8%A3%85%20MacOS/" title="VMware 安装 MacOS 教程">VMware 安装 MacOS 教程</a><time datetime="2021-08-13T09:28:32.870Z" title="发表于 2021-08-13 17:28:32">2021-08-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/05/01/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%20-%20%E6%89%93%E9%80%A0%E4%B8%93%E5%B1%9E%E8%87%AA%E5%B7%B1%E7%9A%84%E6%B6%88%E6%81%AF%E6%8E%A8%E9%80%81/" title="企业微信 - 打造专属自己的消息推送"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="企业微信 - 打造专属自己的消息推送"/></a><div class="content"><a class="title" href="/2021/05/01/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%20-%20%E6%89%93%E9%80%A0%E4%B8%93%E5%B1%9E%E8%87%AA%E5%B7%B1%E7%9A%84%E6%B6%88%E6%81%AF%E6%8E%A8%E9%80%81/" title="企业微信 - 打造专属自己的消息推送">企业微信 - 打造专属自己的消息推送</a><time datetime="2021-05-01T11:41:43.390Z" title="发表于 2021-05-01 19:41:43">2021-05-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/03/29/BeautifulSoup%E5%BA%93/" title="BeautifulSoup"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="BeautifulSoup"/></a><div class="content"><a class="title" href="/2021/03/29/BeautifulSoup%E5%BA%93/" title="BeautifulSoup">BeautifulSoup</a><time datetime="2021-03-28T16:00:00.000Z" title="发表于 2021-03-29 00:00:00">2021-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/01/Python%20-%20CloudDrive/" title="腾讯云函数图床"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="腾讯云函数图床"/></a><div class="content"><a class="title" href="/2021/02/01/Python%20-%20CloudDrive/" title="腾讯云函数图床">腾讯云函数图床</a><time datetime="2021-02-01T13:50:50.006Z" title="发表于 2021-02-01 21:50:50">2021-02-01</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://brief-spurious-pizza.glitch.me/PicBed/Picture%20bed/blog/cover/Office%20E5.png)"><div id="footer-wrap"><div class="copyright">&copy;2021 By 小郭家的一柯聪</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">ヾ(￣▽￣)Bye~Bye~       欢迎下次再来看哦^_^</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>var preloader = {
+</article><div class="post-copyright"><div class="post-copyright__title"><span class="post-copyright-info"><h>Office E5 Renew Auto API</h></span></div><div class="post-copyright__type"><span class="post-copyright-info"><a href="http://nikeguo.github.io/2021/11/03/Office%20E5%20Renew%20Auto%20API/">http://nikeguo.github.io/2021/11/03/Office E5 Renew Auto API/</a></span></div><div class="post-copyright-m"><div class="post-copyright-m-info"><div class="post-copyright-a"><h>作者</h><div class="post-copyright-cc-info"><h>小郭家的一柯聪</h></div></div><div class="post-copyright-c"><h>发布于</h><div class="post-copyright-cc-info"><h>2021-11-03</h></div></div><div class="post-copyright-u"><h>更新于</h><div class="post-copyright-cc-info"><h>2021-11-09</h></div></div><div class="post-copyright-c"><h>许可协议</h><div class="post-copyright-cc-info"><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></div></div></div></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%F0%9F%93%A6%EF%B8%8FINBOX/">📦️INBOX</a></div><div class="post_share"><div class="social-share" data-image="https://brief-spurious-pizza.glitch.me/PicBed/Picture%20bed/blog/cover/Office%20E5.png" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://nickguo.oss-cn-beijing.aliyuncs.com/picture/blog/Collection%20code%20-%20weixin.png" target="_blank"><img class="post-qr-code-img" src="https://nickguo.oss-cn-beijing.aliyuncs.com/picture/blog/Collection%20code%20-%20weixin.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="https://nickguo.oss-cn-beijing.aliyuncs.com/picture/blog/Collection%20code%20-%20zhifubao.jpg" target="_blank"><img class="post-qr-code-img" src="https://nickguo.oss-cn-beijing.aliyuncs.com/picture/blog/Collection%20code%20-%20zhifubao.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/08/13/VMware%20%E5%AE%89%E8%A3%85%20MacOS/"><img class="next-cover" src="https://brief-spurious-pizza.glitch.me/PicBed/Picture%20bed/blog/2021/08/VM-MacOS_Mac%20OS%20DESKTOP.jpg" onerror="onerror=null;src='/null'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">VMware 安装 MacOS 教程</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar1.png" onerror="this.onerror=null;this.src='/null'" alt="avatar"/></div><div class="author-info__name">小郭家的一柯聪</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://nikeguo-github-io.vercel.app/"><i class="fab fa-sync-alt"></i><span>快速访问</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/nikeguo" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1667623488@qq.com" target="_blank" title="E-mail"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/1667623488" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="https://space.bilibili.com/417091173" target="_blank" title="Bilibili"><i class="iconfont icon-bilibili"></i></a><a class="social-icon" href="https://brief-spurious-pizza.glitch.me" target="_blank" title="云盘"><i class="fas fa-cloud-download-alt"></i></a><a class="social-icon" href="https://weibo.com/u/6041741326" target="_blank" title="微博"><i class="fab fa-weibo"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">感谢访问本站，若喜欢请收藏 ^_^</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%F0%9F%93%9C%E6%89%80%E9%9C%80%E5%B7%A5%E5%85%B7"><span class="toc-number">1.</span> <span class="toc-text">📜所需工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%F0%9F%8F%B7%EF%B8%8F%E8%8E%B7%E5%8F%96-refresh-token"><span class="toc-number">2.</span> <span class="toc-text">🏷️获取 refresh_token</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E2%98%81%EF%B8%8F%E8%85%BE%E8%AE%AF%E4%BA%91%E5%87%BD%E6%95%B0SCF"><span class="toc-number">3.</span> <span class="toc-text">☁️腾讯云函数SCF</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">3.1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E9%85%8D%E7%BD%AE"><span class="toc-number">3.2.</span> <span class="toc-text">函数配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%F0%9F%94%97%E6%96%87%E4%BB%B6%E9%93%BE%E6%8E%A5"><span class="toc-number">4.</span> <span class="toc-text">🔗文件链接</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/11/03/Office%20E5%20Renew%20Auto%20API/" title="Office E5 Renew Auto API"><img src="https://brief-spurious-pizza.glitch.me/PicBed/Picture%20bed/blog/cover/Office%20E5.png" onerror="this.onerror=null;this.src='/null'" alt="Office E5 Renew Auto API"/></a><div class="content"><a class="title" href="/2021/11/03/Office%20E5%20Renew%20Auto%20API/" title="Office E5 Renew Auto API">Office E5 Renew Auto API</a><time datetime="2021-11-03T10:18:19.265Z" title="发表于 2021-11-03 18:18:19">2021-11-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/08/13/VMware%20%E5%AE%89%E8%A3%85%20MacOS/" title="VMware 安装 MacOS 教程"><img src="https://brief-spurious-pizza.glitch.me/PicBed/Picture%20bed/blog/2021/08/VM-MacOS_Mac%20OS%20DESKTOP.jpg" onerror="this.onerror=null;this.src='/null'" alt="VMware 安装 MacOS 教程"/></a><div class="content"><a class="title" href="/2021/08/13/VMware%20%E5%AE%89%E8%A3%85%20MacOS/" title="VMware 安装 MacOS 教程">VMware 安装 MacOS 教程</a><time datetime="2021-08-13T09:28:32.870Z" title="发表于 2021-08-13 17:28:32">2021-08-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/05/01/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%20-%20%E6%89%93%E9%80%A0%E4%B8%93%E5%B1%9E%E8%87%AA%E5%B7%B1%E7%9A%84%E6%B6%88%E6%81%AF%E6%8E%A8%E9%80%81/" title="企业微信 - 打造专属自己的消息推送"><img src="/img/index0.jpg" onerror="this.onerror=null;this.src='/null'" alt="企业微信 - 打造专属自己的消息推送"/></a><div class="content"><a class="title" href="/2021/05/01/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%20-%20%E6%89%93%E9%80%A0%E4%B8%93%E5%B1%9E%E8%87%AA%E5%B7%B1%E7%9A%84%E6%B6%88%E6%81%AF%E6%8E%A8%E9%80%81/" title="企业微信 - 打造专属自己的消息推送">企业微信 - 打造专属自己的消息推送</a><time datetime="2021-05-01T11:41:43.390Z" title="发表于 2021-05-01 19:41:43">2021-05-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/03/29/BeautifulSoup%E5%BA%93/" title="BeautifulSoup"><img src="/img/index0.jpg" onerror="this.onerror=null;this.src='/null'" alt="BeautifulSoup"/></a><div class="content"><a class="title" href="/2021/03/29/BeautifulSoup%E5%BA%93/" title="BeautifulSoup">BeautifulSoup</a><time datetime="2021-03-28T16:00:00.000Z" title="发表于 2021-03-29 00:00:00">2021-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/01/Python%20-%20CloudDrive/" title="腾讯云函数图床"><img src="/img/index0.jpg" onerror="this.onerror=null;this.src='/null'" alt="腾讯云函数图床"/></a><div class="content"><a class="title" href="/2021/02/01/Python%20-%20CloudDrive/" title="腾讯云函数图床">腾讯云函数图床</a><time datetime="2021-02-01T13:50:50.006Z" title="发表于 2021-02-01 21:50:50">2021-02-01</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://brief-spurious-pizza.glitch.me/PicBed/Picture%20bed/blog/cover/Office%20E5.png')"><div id="footer-wrap"><div class="copyright">&copy;2021 By 小郭家的一柯聪</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">ヾ(￣▽￣)Bye~Bye~       欢迎下次再来看哦^_^</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (true){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script>var preloader = {
   endLoading: () => {
     document.body.style.overflow = 'auto';
     document.getElementById('loading-box').classList.add("loaded")
@@ -253,7 +282,7 @@ if (fontSizeVal !== undefined) {
 
   }
 }
-window.addEventListener('load',()=> {preloader.endLoading()})</script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
   if (window.mermaidJsLoad) mermaid.init()
   else {
     getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
@@ -264,13 +293,13 @@ window.addEventListener('load',()=> {preloader.endLoading()})</script><div class
       true && mermaid.init()
     })
   }
-}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><div class="aplayer no-destroy" data-id="6928550427" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="true" muted></div><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+}</script></div><div class="aplayer no-destroy" data-id="6928550427" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="true" muted></div><script async src="/js/grayscale.js"></script><script async src="/js/diytitle.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
 POWERMODE.shake = false;
 POWERMODE.mobile = false;
 document.body.addEventListener('input', POWERMODE);
 </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
   'title',
-  '#config_change',
+  '#config-diff',
   '#body-wrap',
   '#rightside-config-hide',
   '#rightside-config-show',
@@ -289,41 +318,12 @@ var pjax = new Pjax({
   scrollRestoration: false
 })
 
-document.addEventListener('pjax:complete', function () {
-  window.refreshFn()
-
-  document.querySelectorAll('script[data-pjax]').forEach(item => {
-    const newScript = document.createElement('script')
-    const content = item.text || item.textContent || item.innerHTML || ""
-    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
-    newScript.appendChild(document.createTextNode(content))
-    item.parentNode.replaceChild(newScript, item)
-  })
-
-  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
-
-  typeof chatBtnFn === 'function' && chatBtnFn()
-  typeof panguInit === 'function' && panguInit()
-
-  if (typeof gtag === 'function') {
-    gtag('config', '', {'page_path': window.location.pathname});
-  }
-
-  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
-
-  // Analytics
-  if (false) {
-    MtaH5.pgv()
-  }
-
-  // prismjs
-  typeof Prism === 'object' && Prism.highlightAll()
-
-  typeof preloader === 'object' && preloader.endLoading()
-})
-
-
 document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
   typeof preloader === 'object' && preloader.initLoading()
   
   if (window.aplayers) {
@@ -340,259 +340,57 @@ document.addEventListener('pjax:send', function () {
   const $bodyClassList = document.body.classList
   $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
 
-})</script><script>(function(){
-  const bp = document.createElement('script');
-  const curProtocol = window.location.protocol.split(':')[0];
-  if (curProtocol === 'https') {
-    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-  }
-  else{
-    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-  }
-  bp.dataset.pjax = ''
-  const s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(bp, s);
-})()</script><script>var gitcalendar = new Vue({
-  el: '#gitcalendar',
-  data: {
-    simplemode: true,
-    user: 'Akilarlxh',
-    fixed: 'fixed',
-    px: 'px',
-    x: '',
-    y: '',
-    span1: '',
-    span2: '',
-    month: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
-    monthchange: [],
-    oneyearbeforeday: '',
-    thisday: '',
-    amonthago: '',
-    aweekago: '',
-    weekdatacore: 0,
-    datacore: 0,
-    total: 0,
-    datadate: '',
-    data: [],
-    positionplusdata: [],
-    firstweek: [],
-    lastweek: [],
-    beforeweek: [],
-    thisweekdatacore: 0,
-    mounthbeforeday: 0,
-    mounthfirstindex: 0,
-    crispedges: 'crispedges',
-    thisdayindex: 0,
-    amonthagoindex: 0,
-    amonthagoweek: [],
-    firstdate: [],
-    first2date: [],
-    montharrbefore: [],
-    monthindex: 0,
-    color: ['#e4dfd7', '#f9f4dc', '#f7e8aa', '#f7e8aa', '#f8df72', '#fcd217', '#fcc515', '#f28e16', '#fb8b05', '#d85916', '#f43e06']
-  },
-  methods: {
-    selectStyle(data, event) {
-      document.querySelector('.angle-wrapper').style.display = 'block'
-      this.span1 = data.date;
-      this.span2 = data.count;
-      this.x = event.clientX - 100;
-      this.y = event.clientY - 60
-    },
-    outStyle() {
-      document.querySelector('.angle-wrapper').style.display = 'none'
-    },
-    thiscolor(x) {
-      if (x === 0) {
-        let i = parseInt(x / 2);
-        return this.color[0]
-      } else if (x < 2) {
-        return this.color[1]
-      } else if (x < 20) {
-        let i = parseInt(x / 2);
-        return this.color[i]
-      } else {
-        return this.color[9]
-      }
-    },
-  }
-});
-var apiurl = '' ? 'https:///api?' : 'https://githubapi.ryanchristian.dev/user/'
-var githubapiurl = apiurl + gitcalendar.user;
-//canvas绘图
-function responsiveChart() {
-  let c = document.getElementById("gitcanvas");
-  if (c) {
-    let cmessage = document.getElementById("gitmessage");
-    let ctx = c.getContext("2d");
-    c.width = document.getElementById("gitcalendarcanvasbox").offsetWidth;
-    let linemaxwitdh = 0.96 * c.width / gitcalendar.data.length;
-    c.height = 9 * linemaxwitdh;
-    let lineminwitdh = 0.8 * linemaxwitdh;
-    let setposition = {
-      x: 0.02 * c.width,
-      y: 0.025 * c.width
-    };
-    for (let week in gitcalendar.data) {
-      weekdata = gitcalendar.data[week];
-      for (let day in weekdata) {
-        let dataitem = {
-          date: "",
-          count: "",
-          x: 0,
-          y: 0
-        };
-        gitcalendar.positionplusdata.push(dataitem);
-        ctx.fillStyle = gitcalendar.thiscolor(weekdata[day].count);
-        setposition.y = Math.round(setposition.y * 100) / 100;
-        dataitem.date = weekdata[day].date;
-        dataitem.count = weekdata[day].count;
-        dataitem.x = setposition.x;
-        dataitem.y = setposition.y;
-        ctx.fillRect(setposition.x, setposition.y, lineminwitdh, lineminwitdh);
-        setposition.y = setposition.y + linemaxwitdh
-      };
-      setposition.y = 0.025 * c.width;
-      setposition.x = setposition.x + linemaxwitdh
-    };
-    ctx.font = "600  Arial";
-    ctx.fillStyle = '#aaa';
-    ctx.fillText("日", 0, 1.9 * linemaxwitdh);
-    ctx.fillText("二", 0, 3.9 * linemaxwitdh);
-    ctx.fillText("四", 0, 5.9 * linemaxwitdh);
-    ctx.fillText("六", 0, 7.9 * linemaxwitdh);
-    let monthindexlist = c.width / 24;
-    for (let index in gitcalendar.monthchange) {
-      ctx.fillText(gitcalendar.monthchange[index], monthindexlist, 0.7 * linemaxwitdh);
-      monthindexlist = monthindexlist + c.width / 12
-    };
-    cmessage.onmousemove = function(event) {
-      document.querySelector('.angle-wrapper').style.display = 'none'
-    };
-    c.onmousemove = function(event) {
-      document.querySelector('.angle-wrapper').style.display = 'none'
-      getMousePos(c, event);
-    };
+})
 
-    function getMousePos(canvas, event) {
-      var rect = canvas.getBoundingClientRect();
-      var x = event.clientX - rect.left * (canvas.width / rect.width);
-      var y = event.clientY - rect.top * (canvas.height / rect.height);
-      //console.log("x:"+x+",y:"+y);
-      for (let item of gitcalendar.positionplusdata) {
-        let lenthx = x - item.x;
-        let lenthy = y - item.y;
-        //console.log(lenthx,lenthy);
-        if (0 < lenthx && lenthx < lineminwitdh) {
-          if (0 < lenthy && lenthy < lineminwitdh) {
-            //console.log(item.date,item.count)
-            document.querySelector('.angle-wrapper').style.display = 'block'
-            gitcalendar.span1 = item.date;
-            gitcalendar.span2 = item.count;
-            gitcalendar.x = event.clientX - 100;
-            gitcalendar.y = event.clientY - 60
-          }
-        }
-        //if(0< x - item.x <lineminwitdh&&0< y - item.y <lineminwitdh){
-        //console.log(item.count,item.date);
-        //}
-      }
-    }
-  }
-}
-//数据统计算法
-function addlastmonth() {
-  if (gitcalendar.thisdayindex === 0) {
-    thisweekcore(52);
-    thisweekcore(51);
-    thisweekcore(50);
-    thisweekcore(49);
-    thisweekcore(48);
-    gitcalendar.thisweekdatacore += gitcalendar.firstdate[6].count;
-    gitcalendar.amonthago = gitcalendar.firstdate[6].date
-  } else {
-    thisweekcore(52);
-    thisweekcore(51);
-    thisweekcore(50);
-    thisweekcore(49);
-    thisweek2core();
-    gitcalendar.amonthago = gitcalendar.first2date[gitcalendar.thisdayindex - 1].date
-  }
-};
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
 
-function thisweek2core() {
-  for (let i = gitcalendar.thisdayindex - 1; i < gitcalendar.first2date.length; i++) {
-    gitcalendar.thisweekdatacore += gitcalendar.first2date[i].count
-  }
-};
-
-function thisweekcore(index) {
-  for (let item of gitcalendar.data[index]) {
-    gitcalendar.thisweekdatacore += item.count
-  }
-};
-
-function addlastweek() {
-  for (let item of gitcalendar.lastweek) {
-    gitcalendar.weekdatacore += item.count
-  }
-};
-
-function addbeforeweek() {
-  for (let i = gitcalendar.thisdayindex; i < gitcalendar.beforeweek.length; i++) {
-    gitcalendar.weekdatacore += gitcalendar.beforeweek[i].count
-  }
-};
-
-function addweek(data) {
-  if (gitcalendar.thisdayindex === 6) {
-    gitcalendar.aweekago = gitcalendar.lastweek[0].date;
-    addlastweek()
-  } else {
-    lastweek = data.contributions[51];
-    gitcalendar.aweekago = lastweek[gitcalendar.thisdayindex + 1].date;
-    addlastweek();
-    addbeforeweek()
-  }
-}
-
-fetch(githubapiurl)
-  .then(data => data.json())
-  .then(data => {
-    gitcalendar.data = data.contributions;
-    gitcalendar.total = data.total;
-    gitcalendar.first2date = gitcalendar.data[48];
-    gitcalendar.firstdate = gitcalendar.data[47];
-    gitcalendar.firstweek = data.contributions[0];
-    gitcalendar.lastweek = data.contributions[52];
-    gitcalendar.beforeweek = data.contributions[51];
-    gitcalendar.thisdayindex = gitcalendar.lastweek.length - 1;
-    gitcalendar.thisday = gitcalendar.lastweek[gitcalendar.thisdayindex].date;
-    gitcalendar.oneyearbeforeday = gitcalendar.firstweek[0].date;
-    gitcalendar.monthindex = gitcalendar.thisday.substring(5, 7) * 1;
-    gitcalendar.montharrbefore = gitcalendar.month.splice(gitcalendar.monthindex, 12 - gitcalendar.monthindex);
-    gitcalendar.monthchange = gitcalendar.montharrbefore.concat(gitcalendar.month);
-    addweek(data);
-    addlastmonth();
-    responsiveChart();
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
   })
-  .catch(function(error) {
-    console.log(error);
-  });
 
-//手机版更换为svg绘制
-if (document.getElementById("gitcalendarcanvasbox").offsetWidth < 500) {
-  gitcalendar.simplemode = false
-}
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
 
-//当改变窗口大小时重新绘制canvas
-window.onresize = function() {
-  if (gitcalendar.simplemode) responsiveChart()
-}
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
 
-//解决滚动滑轮时出现的标签显示
-window.onscroll = function() {
-  if (document.querySelector('.angle-wrapper')) {
-    document.querySelector('.angle-wrapper').style.display = 'none'
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
   }
-};</script></div></body></html>
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-filter-gitcalendar/lib/gitcalendar.js"></script><script data-pjax>
+                        function gitcalendar_injector_config(){
+                          var parent_div_git = document.getElementById('recent-posts');
+                          var item_html = '<div class="recent-post-item" style="width:100%;height:auto;padding:10px;"><style>#git_container{min-height: 280px}@media screen and (max-width:650px) {#git_container{min-height: 0px}}</style><div id="git_loading" style="width:10%;height:100%;margin:0 auto;display: block;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animatetransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animatetransform></path></svg><style>#git_container{display: none;}</style></div><div id="git_container"></div></div>';
+                          parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+                          console.log('已挂载gitcalendar')
+                          }
+
+                        if( document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+                            gitcalendar_injector_config()
+                            GitCalendarInit("https://gitcalendar.akilar.top/api?Nikeguo",['#e4dfd7', '#f9f4dc', '#f7e8aa', '#f7e8aa', '#f8df72', '#fcd217', '#fcc515', '#f28e16', '#fb8b05', '#d85916', '#f43e06'],'Nikeguo')
+                        }
+                      </script><!-- hexo injector body_end end --></body></html>

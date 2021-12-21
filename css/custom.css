@@ -1,5 +1,58 @@
+/* Start 相册页面定位修复*/
+.justified-gallery > div > img,
+.justified-gallery > figure > img,
+.justified-gallery > a > a > img,
+.justified-gallery > div > a > img,
+.justified-gallery > figure > a > img,
+.justified-gallery > a > svg,
+.justified-gallery > div > svg,
+.justified-gallery > figure > svg,
+.justified-gallery > a > a > svg,
+.justified-gallery > div > a > svg,
+.justified-gallery > figure > a > svg{
+  position:static!important;
+}
+/* End 相册页面定位修复*/
+
+/* Start 10s为加载动画的时间，1为加载动画的次数，ease-in-out为动画效果*/
+/*
+#page-header,
+#web_bg {
+    -webkit-animation: imgblur 0.5s 1 ease-in-out;
+    animation: imgblur 0.5s 1 ease-in-out;
+}
+@keyframes imgblur {
+  0% {
+    filter: blur(5px);
+  }
+  100% {
+    filter: blur(0px);
+  }
+}
+/*适配使用-webkit内核的浏览器 */
+/*
+@-webkit-keyframes imgblur {
+  0% {
+    -webkit-filter: blur(5px);
+  }
+  100% {
+    -webkit-filter: blur(0px);
+  }
+}
+/* End 10s为加载动画的时间，1为加载动画的次数，ease-in-out为动画效果*/
+
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+  left: -66px !important;
+  /* 默认情况下缩进左侧66px，只留一点箭头部分 */
+}
+
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+  left: 0 !important;
+  /* 鼠标悬停是左侧缩进归零，完全显示按钮 */
+}
+
 @font-face{
-  font-family:'手札体-简' ;  /* 字体名自定义即可 */
-  src:url('../fonts/手札体.ttf'); /* 字体文件路径 */
+  font-family:'PFSG' ;  /* 字体名自定义即可 */
+  src:url('/fonts/PFGS.ttf'); /* 字体文件路径 */
   font-display : swap;
 }
