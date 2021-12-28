@@ -52,7 +52,7 @@
 }
 
 @font-face{
-  font-family:'PFSG' ;  /* 字体名自定义即可 */
-  src:url('/fonts/PFGS.ttf'); /* 字体文件路径 */
+  font-family:'MiSans' ;  /* 字体名自定义即可 */
+  src:url('/fonts/MiSans.ttf'); /* 字体文件路径 */
   font-display : swap;
 }
